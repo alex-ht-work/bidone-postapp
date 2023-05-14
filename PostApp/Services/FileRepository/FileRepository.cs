@@ -6,12 +6,14 @@ namespace PostApp.Services.FileRepository;
 
 public class FileRepository: IRepository
 {
+    private readonly IFileNameProvider _fileNameProvider;
     private readonly IFileSystem _fileSystem;
     private readonly IOptions<FileRepositoryConfig> _config;
     private readonly ILogger<FileRepository> _logger;
 
-    public FileRepository(IFileSystem fileSystem, IOptions<FileRepositoryConfig> config, ILoggerFactory loggerFactory)
+    public FileRepository(IFileNameProvider fileNameProvider, IFileSystem fileSystem, IOptions<FileRepositoryConfig> config, ILoggerFactory loggerFactory)
     {
+        _fileNameProvider = fileNameProvider;
         _fileSystem = fileSystem;
         _config = config;
         _logger = loggerFactory.CreateLogger<FileRepository>();

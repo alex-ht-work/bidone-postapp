@@ -2,5 +2,5 @@
 
 public record FileRepositoryConfig
 {
-    private string DataFolderPath { get; set; } = "";
+    public string DataFolderPath { get; set; } = "";
 }
