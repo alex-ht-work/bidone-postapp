@@ -7,8 +7,7 @@ services:
       - 80:80
       - 443:443
     environment:
-      DATA_DIR: /var/post-app
-    
+      Repo__DataFolderPath: /var/post-app
     volumes:
       - data-volume:/var/post-app    
       

@@ -11,7 +11,7 @@ public static class SaveParticipantEndpoint
         endpoints.MapPost("api/save", SaveParticipant);
     }
 
-    private static async Task SaveParticipant([FromForm] Participant participant, [FromServices] IRepository repo)
+    private static async Task SaveParticipant([FromBody] Participant participant, [FromServices] IRepository repo)
     {
         await repo.Save(participant);
     }
