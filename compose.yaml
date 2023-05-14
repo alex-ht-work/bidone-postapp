@@ -1,0 +1,17 @@
+services:
+  web-app:
+    build:
+      context: .
+      dockerfile: PostApp/Dockerfile
+    ports:
+      - 80:80
+      - 443:443
+    environment:
+      DATA_DIR: /var/post-app
+    
+    volumes:
+      - data-volume:/var/post-app    
+      
+volumes:
+  data-volume:
+    name: PostApp-Data     
