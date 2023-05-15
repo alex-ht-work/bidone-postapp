@@ -1,0 +1,13 @@
+<form (ngSubmit)="onSubmit()">
+  <div class="group">
+    <label>
+      <div class="label">First name</div>
+      <input type="text" required [(ngModel)]="firstName" name="firstName" #firstNameInput="ngModel"/>
+    </label>
+    <label>
+      <div class="label">Last name</div>
+      <input type="text" required [(ngModel)]="lastName" name="lastName" #lastNameInput="ngModel"/>
+    </label>
+  </div>
+  <input type="submit" [disabled]="firstNameInput.invalid || lastNameInput.invalid"/>
+</form>

@@ -5,10 +5,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { ParticipantFormComponent } from './participant-form/participant-form.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ParticipantFormComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

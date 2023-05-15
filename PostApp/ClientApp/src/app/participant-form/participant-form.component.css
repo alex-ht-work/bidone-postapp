@@ -1,0 +1,30 @@
+form {
+  display: flex;
+  flex-direction: row;
+}
+
+div.group {
+  display: table;
+}
+
+label {
+  display: table-row;
+}
+
+div.label {
+  display: table-cell;
+  padding: 0.25rem;
+}
+
+div.label::after {
+  content: ":";
+}
+
+input[type="text"] {
+  display: table-cell;
+  margin: 0.25rem;
+}
+
+input[type=submit] {
+  margin: 0.25rem;
+}
