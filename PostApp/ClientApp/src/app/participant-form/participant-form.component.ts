@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ParticipantService } from "../participant.service";
 
 @Component({
   selector: 'app-participant-form',
@@ -8,11 +9,23 @@ import { Component } from '@angular/core';
 export class ParticipantFormComponent {
   firstName: string = "";
   lastName: string = "";
+  working: boolean = false;
+
+  constructor(private participantService: ParticipantService){}
 
   onSubmit()
   {
-    window.alert(`${this.firstName} ${this.lastName}`);
-    this.firstName = "";
-    this.lastName = "";
+    this.working = true;
+    this.participantService
+        .save({firstName: this.firstName, lastName: this.lastName})
+        .subscribe(success => {
+          if(success)
+          {
+            this.firstName = "";
+            this.lastName = "";
+          }
+
+          this.working = false;
+        });
   }
 }

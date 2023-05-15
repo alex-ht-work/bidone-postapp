@@ -9,5 +9,5 @@
       <input type="text" required [(ngModel)]="lastName" name="lastName" #lastNameInput="ngModel"/>
     </label>
   </div>
-  <input type="submit" [disabled]="firstNameInput.invalid || lastNameInput.invalid"/>
+  <input type="submit" [disabled]="firstNameInput.invalid || lastNameInput.invalid || working"/>
 </form>
