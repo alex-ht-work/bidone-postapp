@@ -1,9 +1,8 @@
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 
 import { ParticipantFormComponent } from './participant-form.component';
-import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { FormsModule } from "@angular/forms";
-import { Observable, of, throwError } from "rxjs";
+import { of, throwError } from "rxjs";
 import { Participant } from "../participant.model";
 import { ParticipantService } from "../participant.service";
 
@@ -12,7 +11,7 @@ describe('ParticipantFormComponent', () => {
   let fixture: ComponentFixture<ParticipantFormComponent>;
   let mockParticipantService: jasmine.SpyObj<ParticipantService>;
 
-  let expactedParticipant = {
+  let expactedParticipant: Participant = {
     firstName: "Alexander",
     lastName: "Hagen-Thorn"
   };
@@ -22,7 +21,7 @@ describe('ParticipantFormComponent', () => {
 
     await TestBed.configureTestingModule({
       declarations: [ ParticipantFormComponent ],
-      imports: [ HttpClientTestingModule, FormsModule ],
+      imports: [ FormsModule ],
       providers: [{ provide: ParticipantService, useValue: mockParticipantService}]
     })
     .compileComponents();
@@ -64,7 +63,7 @@ describe('ParticipantFormComponent', () => {
     mockParticipantService.save.and.returnValue(of({}));
     formElement.dispatchEvent(new Event('submit'));
     fixture.detectChanges();
-    tick();
+    tick(); // this is needed for 2-way data synchronizaton of the form fields
     expect(errorMessageElement.innerText).toBeFalsy();
     expect(firstNameInput.value).toBeFalsy(); // form has been reset
     expect(lastNameInput.value).toBeFalsy();

@@ -15,7 +15,7 @@ public class FileRepository: IRepository
     public FileRepository(IFileNameProvider fileNameProvider, IFileSystem fileSystem, IOptions<FileRepositoryConfig> config, ILoggerFactory loggerFactory)
     {
         _fileNameProvider = fileNameProvider;
-        _fileSystem = fileSystem;
+        _fileSystem = fileSystem;  // file system abstracted for testability
         _config = config;
         _logger = loggerFactory.CreateLogger<FileRepository>();
     }

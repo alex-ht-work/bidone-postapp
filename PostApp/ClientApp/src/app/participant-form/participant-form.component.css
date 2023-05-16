@@ -8,6 +8,9 @@ form {
   flex-direction: row;
 }
 
+/* Table grid suits perfectly for those controls and labels, but we keep the template design-agnostic, that is why
+   we table-ize it in CSS
+ */
 div.group {
   display: table;
 }
@@ -21,6 +24,7 @@ div.label {
   padding: 0.25rem;
 }
 
+/* Note: ':' after labal text is an element of visual design, what is why it is in CSS */
 div.label::after {
   content: ":";
 }

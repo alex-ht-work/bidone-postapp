@@ -15,7 +15,7 @@ namespace PostApp
         public static IHost BuildHost(string[] args, Action<IServiceCollection>? addTestServices = null)
         {
             var builder = WebApplication.CreateBuilder(args);
-            builder.Configuration.AddEnvironmentVariables();
+            builder.Configuration.AddEnvironmentVariables(); // docker compose will inject parameters via environment variables
             builder.Services.Configure<FileRepositoryConfig>(builder.Configuration.GetSection("Repo"))
                             .AddSingleton<IFileSystem, FileSystem>()
                             .AddSingleton<IFileNameProvider, FileNameProvider>()

@@ -1,4 +1,5 @@
 :host {
+  /* take the whole window, center the content */
   display: flex;
   align-items: center;
   justify-content: center;

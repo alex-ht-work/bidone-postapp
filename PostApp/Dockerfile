@@ -1,7 +1,7 @@
 #Note: This dockerfile should be built in the context of the solution folder, not the project folder where it sits.
 #      Use the solution folder as a docker build contxt and specify the path to this file by -f option
 #
-#      Or even better, use docker compose with the compose file provided.
+#      Or use docker compose with the compose file provided.
 
 FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
 WORKDIR /app
