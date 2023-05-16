@@ -18,14 +18,16 @@ export class ParticipantFormComponent {
     this.working = true;
     this.participantService
         .save({firstName: this.firstName, lastName: this.lastName})
-        .subscribe(success => {
-          if(success)
-          {
+        .subscribe({
+          complete: () => {
             this.firstName = "";
             this.lastName = "";
+            this.working = false;
+          },
+          error: () => {
+            window.alert("Error sending data");
+            this.working = false;
           }
-
-          this.working = false;
         });
   }
 }

@@ -11,15 +11,8 @@ export class ParticipantService {
 
   constructor(private http: HttpClient) { }
 
-  save(participant: Participant): Observable<boolean>
+  save(participant: Participant)
   {
-    return this.http.post("/api/save", participant)
-      .pipe(
-        map(_ => true),  // true = success
-        catchError((e, src)=> {
-          window.alert("Error sending data");
-          return of(false);
-        })
-      )
+    return this.http.post("/api/save", participant);
   }
 }
