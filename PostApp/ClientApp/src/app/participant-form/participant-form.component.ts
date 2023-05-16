@@ -10,6 +10,7 @@ export class ParticipantFormComponent {
   firstName: string = "";
   lastName: string = "";
   working: boolean = false;
+  errorMessage: string = "";
 
   constructor(private participantService: ParticipantService){}
 
@@ -22,10 +23,11 @@ export class ParticipantFormComponent {
           complete: () => {
             this.firstName = "";
             this.lastName = "";
+            this.errorMessage = "";
             this.working = false;
           },
           error: () => {
-            window.alert("Error sending data");
+            this.errorMessage = "Error sending data";
             this.working = false;
           }
         });

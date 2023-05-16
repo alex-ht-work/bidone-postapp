@@ -1,3 +1,8 @@
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
 form {
   display: flex;
   flex-direction: row;
@@ -27,4 +32,8 @@ input[type="text"] {
 
 input[type=submit] {
   margin: 0.25rem;
+}
+
+.error-display {
+  color: red
 }
