@@ -12,7 +12,7 @@ namespace PostApp
             BuildHost(args).Run();
         }
 
-        public static IHost BuildHost(string[] args, Action<IServiceCollection> addTestServices = null)
+        public static IHost BuildHost(string[] args, Action<IServiceCollection>? addTestServices = null)
         {
             var builder = WebApplication.CreateBuilder(args);
             builder.Configuration.AddEnvironmentVariables();
